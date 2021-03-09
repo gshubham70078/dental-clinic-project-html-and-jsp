@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+<title>TODO supply a title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.button {
+background-color:#88D3ED;
+border: none;
+color: white;
+padding: 10px 40px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+.button2:hover {
+background-color: #008CBA;
+color: white;
+}
+</style>
+<script>
+function billd()
+{
+var up=document.getElementById("aptdate").value;
+alert(up);
+var obj=new XMLHttpRequest();
+if(obj)
+{
+obj.open("GET","apt.jsp?aa="+up,true);
+obj.send(null);
+obj.onreadystatechange=function()
+{
+if(obj.status==200 && obj.readyState==4)
+{
+document.all("dd3").innerHTML=obj.responseText;
+
+alert("ok");
+}
+};
+}
+}
+</script>
+</head>
+<body>
+<form><center><font color="#14569D" size="4">View appointment on date</font>
+<br><input type="date" id="aptdate"><br>
+<input type="button" value="ok" onclick="billd()" class="button button2">
+<div id="dd3"></div>
+</center>
+</form>
+</body>
+</html>
